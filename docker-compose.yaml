@@ -1,0 +1,16 @@
+version: '2'
+services:
+  my-reverse-proxy:
+    container_name: my-reverse-proxy-container
+    hostname: my-reverse-proxy
+    build: ./my-reverse-proxy
+    ports:
+      - 3000:3000
+    depends_on:
+      - my-end-service
+  my-end-service:
+    container_name: my-end-service-container
+    hostname: my-end-service
+    build: ./my-end-service
+    ports:
+      - 3000
